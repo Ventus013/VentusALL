@@ -50,7 +50,7 @@ VALUES
 (3, NULL, 'Dúvida sobre formas de pagamento'),
 (4, 1, 'Reembolso solicitado');
 
--- Consulta 1: Clientes que possuem itens no carrinho, ordenados pelo nome do jogo
+-- CONSULTA 1 -- Clientes que possuem itens no carrinho, ordenados pelo nome do jogo
 SELECT 
     c.nome AS Nome_Cliente,
     j.nome_jogo AS Jogo_no_Carrinho,
@@ -66,7 +66,7 @@ JOIN
 ORDER BY 
     c.nome, j.nome_jogo;
 
--- Consulta 2: Detalhes das vendas, incluindo nome do cliente e valor total da compra
+-- CONSULTA 2 -- Detalhes das vendas, incluindo nome do cliente e valor total da compra
 SELECT 
     v.id_venda AS ID_Venda,
     c.nome AS Nome_Cliente,
@@ -80,7 +80,7 @@ ORDER BY
     v.data_compra DESC
 LIMIT 10; -- Limita a 10 resultados
 
--- Consulta 3: Jogos vendidos e o valor pago por item, agrupados por jogo
+-- CONSULTA 3 -- Jogos vendidos e o valor pago por item, agrupados por jogo
 SELECT 
     j.nome_jogo AS Jogo_Vendido,
     SUM(iv.valor_pago_item) AS Total_Arrecadado,
@@ -96,7 +96,7 @@ HAVING
 ORDER BY 
     Total_Arrecadado DESC;
 
--- Consulta 4: Clientes que abriram chamado de suporte, e o tipo de intenção
+-- CONSULTA 4 -- Clientes que abriram chamado de suporte, e o tipo de intenção
 SELECT 
     c.nome AS Nome_Cliente,
     s.tipo_intecao AS Tipo_Suporte,
@@ -110,12 +110,12 @@ WHERE
 ORDER BY 
     c.nome;
 
--- UPDATE 1
+-- UPDATE 1 -- Atualizar o número de telefone do cliete 1
 UPDATE cliente
 SET telefone = '11987654321'
 WHERE id_cliente = 1;
 
--- UPDATE 2: Aplicar um desconto de 10% na venda de ID 2
+-- UPDATE 2 -- Aplicar um desconto de 10% na venda de ID 2
 UPDATE vendas
 SET valor_compra = ROUND(valor_compra * 0.90, 2) -- Garante que o valor seja arredondado para duas casas decimais
 WHERE id_venda = 2;
@@ -125,15 +125,15 @@ UPDATE suporte
 SET url_documento = 'http://ventusall.com/resolucao/1'
 WHERE id_suporte = 1 AND id_venda = 1;
 
--- DELETE 1: Remover um item específico do carrinho de um cliente
+-- DELETE 1 -- Remover um item específico do carrinho de um cliente
 DELETE FROM itens_carrinho
 WHERE id_carrinho = 2 AND id_jogo = 3; -- Remove Gear of War do carrinho 2
 
--- DELETE 2: Remover chamados de suporte que não estão relacionados a uma venda
+-- DELETE 2 -- Remover chamados de suporte que não estão relacionados a uma venda
 DELETE FROM suporte
 WHERE id_venda IS NULL AND tipo_intecao = 'Dúvida sobre formas de pagamento';
 
--- DELETE 3
+-- DELETE 3 -- Teste de delete em cliente
 INSERT INTO cliente (nome, cpf, email)
 VALUES ('Cliente Teste', '99999999999', 'teste@email.com');
 
