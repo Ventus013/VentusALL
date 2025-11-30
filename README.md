@@ -1,6 +1,6 @@
 <div align = "center">
   <h1> Sistema de Banco de Dados - VentusALL</h1>
-<h2>Projeto Academico - Faculdade Cruzeiro do Suk</h2>
+<h2>Projeto Academico - Faculdade Cruzeiro do Sul</h2>
 <body>
 <h1>Projeto de Banco de Dados: VentusALL - Vendas de Jogos Digitais</h1>
 <p>Este documento detalha o <strong>Minimundo</strong> modelado e o <strong>Código SQL</strong> desenvolvido para o projeto de Banco de Dados da <strong>Faculdade Cruzeiro do Sul</strong>.</p>
